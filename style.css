@@ -1,0 +1,176 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #e307f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    background-color: rgba(44, 62, 80, 0.8);
+    color: #ccc;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo img {
+    width: 130px;
+    height: 110px;
+    margin-right: 20px;
+}
+
+.space{
+    width: 170px;
+    height: 130px;
+  
+}
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 50px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+/* Icon button styles */
+.icon-button {
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgba(52, 152, 219, 0.8);
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Adjust to position below "SiteSense" */
+    position: relative;
+}
+
+.icon-button:hover {
+    background-color: rgba(41, 128, 185, 0.8);
+}
+
+.icon-button::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.icon-button:hover::after {
+    opacity: 1;
+}
+
+.profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile img {
+    width: 130px;
+    height: 110px;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+}
+
+.profile-menu a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.profile-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.main-content {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.connect-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.connect-button:hover {
+    background-color: #2980b9;
+}
+
+.live-display {
+    margin-top: 20px;
+    width: 80%;
+    height: 70vh;
+    background-color: rgba(224, 224, 224, 0.8);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #7f8c8d;
+}
