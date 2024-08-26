@@ -34,15 +34,15 @@ def calculate_image_difference(imageA, imageB):
 
 def generate_insights(diff_score):
     if diff_score > 0.8:
-        return ["Minimal construction progress detected.",
-                "The site shows only slight modifications."]
+        return ["1. Minimal construction progress detected.",
+                "2. The site shows only slight modifications."]
     elif 0.5 < diff_score <= 0.8:
-        return ["Moderate construction progress detected.",
-                "Significant changes observed in key areas."]
+        return ["1. Moderate construction progress detected.",
+                "2. Significant changes observed in key areas."]
     else:
-        return ["Substantial construction progress detected.",
-                "Major structural differences found between the images.",
-                "Considerable advancement in construction."]
+        return ["1. Substantial construction progress detected.",
+                "2. Major structural differences found between the images.",
+                "3. Considerable advancement in construction."]
 
 def generate_comparison_report(previous_image_path, current_image_path):
     
@@ -79,6 +79,145 @@ def generate_comparison_report(previous_image_path, current_image_path):
         ["Difference Image", diff_image_path],
         ["AI Insights", "\n".join(insights)]
     ]
+
+    new_html_content = f"""
+
+    <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="css/style.css">
+            <title>Home ImageHub</title>
+            <style>
+                body {{
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    color: #e307f8;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    overflow: hidden;
+                    background: url(progress-bg.jpg);
+                    backdrop-filter: blur(2px);
+                    width: 100%;
+                    background-size: cover;
+                }}
+
+                header {{
+                    width: 100%;
+                    height: 70px;
+                    color: #ccc;
+                    padding: 30px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    position: relative;
+                }}
+
+                .logo {{
+                    display: flex;
+                    align-items: center;
+                    padding: 5px;
+                }}
+
+                .logo img {{
+                    width: 150px;
+                    height: auto;
+                    margin-right: 20px;
+                    margin-left: -18px;
+                }}
+
+                .space {{
+                    width: 170px;
+                    height: 130px;
+                }}
+
+                .nav-links {{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 45px;
+                    transition: color 0.3s;
+                    margin-left: -50px;
+                }}
+
+                .main-content {{
+                    width: 100%;
+                    height: 80vh;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }}
+
+                .live-display {{
+                    margin-top: -20px;
+                    width: 80%;
+                    background-color: rgba(224, 224, 224, 0.308);
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 24px;
+                    color: black;
+                    overflow: auto; /* Adds scrollbars if content overflows */
+                    padding: 20px; /* Adds padding inside the live-display */
+                }}
+            </style>
+        </head>
+
+        <body>
+            <header>
+                <div class="logo">
+                    <img src="logo.png" alt="Site Logo">
+                </div>
+                <div class="nav-links">Progress Tracker</div>
+                <div class="space"></div>
+            </header>
+
+            <div class="main-content">
+                <div class="img" style="height: 100%; background-size: cover; width: 100%; display: flex; flex-direction: column; align-items: center;">
+                    <div class="live-display">
+                        <table>
+                            <br><br><br><br><br><br><br><br><br><br>
+                            <tr>
+                                <td><strong>AI Insights:</strong></td>
+                                <td>{'<br>'.join(insights)}</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="margin-top: 250px;">Previous Image:</strong></td>
+                                <td><img src="Images/previous_site_image.jpeg" style="width: 200px; height: 200px; margin-left: 200px; margin-top: 50px;"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Current Image:</strong></td>
+                                <td><img src="Images/current_site_image.jpeg" style="width: 200px; height: 200px; margin-left: 200px;"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Differences Image:</strong></td>
+                                <td><img src="Images/difference_image.jpeg" style="width: 200px; height: 200px; margin-left: 200px;"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </body>
+
+        </html>
+    """
+    progress_file_path = "progress.html"
+    with open(progress_file_path, "w") as file:
+        file.write(new_html_content)
+
+    print("Report generated and written to progress.html")
     
     # Display the data in tabular form in the terminal
     print(tabulate(data, headers=["Description", "Details"], tablefmt="grid"))
