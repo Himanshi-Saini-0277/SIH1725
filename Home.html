@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiteSense Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('home-bg.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #e307f8;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: rgba(44, 62, 80, 0.8);
+            color: #ccc;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .logo img {
+            width: 150px;
+            height: px;
+            margin-right: 20px;
+            margin-left: -18px;
+            margin-top: -45px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 36px;
+            transition: color 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Align icons horizontally below SiteSense */
+        .icon-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        /* Icon button styles */
+        .icon-button {
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+            background-color: rgb(128, 128, 128);
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        .icon-button:hover {
+            background-color: rgba(41, 128, 185, 0.8);
+        }
+
+        .icon-button::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            font-size: 14px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .icon-button:hover::after {
+            opacity: 1;
+        }
+
+        .profile {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .profile img {
+            width: 60px;
+            height: 60px;
+            padding: 10px;
+            margin-top: -40px;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+
+        .profile-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            width: 150px;
+            text-align: center;
+        }
+
+        .profile-menu a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .profile-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .main-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .connect-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .connect-button:hover {
+            background-color: #2980b9;
+        }
+
+        .live-display {
+            margin-top: 20px;
+            width: 80%;
+            height: 80vh;
+            background-color: rgba(224, 224, 224, 0.473);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: black;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Site Logo">
+        </div>
+        <div class="nav-links">
+            <a>SiteSense</a>
+            <div class="icon-container">
+                <div class="icon-button" data-tooltip="Image Hub" onclick="window.location.href='imagehub.html'">
+                    <img style="width: 40px; height: 40px; padding: 3px; border-radius: 50%;" src="small.png">
+                </div>
+                <div class="icon-button" data-tooltip="Stage Insight" onclick="window.location.href='stageInsight.html'">
+                    <img style="width: 40px; height: 40px; padding: 3px; border-radius: 50%;" src="small3.png">
+                </div>
+                <div class="icon-button" data-tooltip="Progress Tracker" onclick="window.location.href='progress.html'">
+                    <img style="width: 40px; height: 40px; padding: 3px;border-radius: 50%;" src="small2.png">
+                </div>
+                <div class="icon-button" data-tooltip="Error Checkpoint" onclick="window.location.href='errorCheckpoint.html'">
+                    <img style="width: 40px; height: 40px; padding: 3px;border-radius: 50%;" src="small4.png">
+                </div>
+            </div>
+        </div>
+        <div class="profile" onclick="toggleProfileMenu()">
+            <img src="profile-logo.jpg" alt="Profile Picture">
+            <div class="profile-menu" id="profileMenu">
+                <a href="Entrance.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <button class="connect-button">Connect Camera Device</button>
+        <div class="live-display">
+            <table>
+                <tr>
+                    <td><img src="Images/previous_site_image.jpeg" style="width: 200px; height: 200px; padding-right: 30px; margin-top: -130px;"></td>
+                    <td><img src="Images/current_site_image.jpeg" style="width: 200px; height: 200px; padding-left: 30px; padding-right: 30px; margin-top: -130px;"></td>
+                    <td><img src="Images/difference_image.jpeg" style="width: 200px; height: 200px; padding-left: 30px; margin-top: -130px;"></td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;">Previous Image</td>
+                    <td style="text-align: center;">Current Image</td>
+                    <td style="text-align: right;">Difference Image</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function toggleProfileMenu() {
+            var menu = document.getElementById("profileMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
+        window.onclick = function (event) {
+            var menu = document.getElementById("profileMenu");
+            if (!event.target.closest('.profile')) {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
