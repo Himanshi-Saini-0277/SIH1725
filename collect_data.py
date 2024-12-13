@@ -7,7 +7,7 @@ imageDetect = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 count = 0
 
 nameID = str (input("Enter Day number: ")).lower()
-path = r'C:\Users\himan\Documents\SIH1725\Images\{}'.format(nameID)
+path = r'D:\Documents\SIHproject\SIH1725\Images\{}'.format(nameID)
 
 Exist = os.path.exists(path)
 
